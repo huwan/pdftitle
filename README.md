@@ -20,8 +20,6 @@ same as this script. The differences are:
 > Lecture Notes of Computer Science (LNCS), pages 413-416, Glasgow (UK),
 > September 2010. Springer.
 
-![Travis CI Status](https://travis-ci.org/djui/pdftitle.svg)
-
 ## Background
 
 The title of a PDF article usually is in the filename but often is not. Next up
@@ -32,12 +30,14 @@ the first line often gives false positives or incomplete titles.
 ## Usage
 
     $ pdftitle --help
-    usage: pdftitle [-h] [-r] [-m] [-s] [-t TOP_MARGIN] [-n MIN_LENGTH] [-x MAX_LENGTH] [-d] [-v] FILE
+    usage: pdftitle [-h] [-r] [-m] [-s] [-t TOP_MARGIN] [-n MIN_LENGTH]
+                    [-x MAX_LENGTH] [-d] [-v]
+                    FILE [FILE ...]
 
     Tries to identify the title of PDF format paper.
 
     positional arguments:
-      FILE                  Path to PDF file
+      FILE                  Path to PDF file(s)
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -53,10 +53,9 @@ the first line often gives false positives or incomplete titles.
       -d, --debug           Print error stacktrace for unknown errors
       -v, --version         show program's version number and exit
 
-
 ## Dependencies
 
-  * Python >=2.5
+  * Python >=2.5 (but < 3.x)
   * [Poppler](http://poppler.freedesktop.org/) >=0.20.5 (contains `pdftohtml`)
 
       `$ brew install poppler`
@@ -77,22 +76,6 @@ scanned PDFs) results in 76.25% success rate.
 Version 1.2: No comparison available. (I lost the original sample set)
 
 Version 1.3: No comparison available. (I lost the original sample set)
-
-
-## Contributing
-
-### Testing
-
-    $ ./test/run.sh -v
-
-
-## Todos
-
-**Version 2.0**: I will likely switch from Poppler/pdftohtml to PDFBox (or JPod)
-to have no external dependencies. This will likely convert the script into a
-Java CLI application. I was tinkering with a Go/Rust version (as bindings to
-Poppler similar to [Go-Poppler](https://github.com/cheggaaa/go-poppler)) Let's
-see.
 
 
 ## License
